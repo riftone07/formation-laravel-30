@@ -1,0 +1,7 @@
+table,th,td{
+			border: black 5px solid;
+		}
+th{
+	background-color: black;
+	color: white;
+}
