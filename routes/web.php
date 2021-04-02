@@ -1,12 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\ExempleController;
-use App\Http\Controllers\CategorieController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProduitController;
-use App\Models\Categorie;
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\WelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,12 +14,20 @@ use App\Models\Categorie;
 | contains the "web" middleware group. Now create something great!
 |
 */
- 
-Route::resource('categories',CategorieController::class);
+require __DIR__.'/auth.php';
 
-Route::resource('produits', ProduitController::class);
-
+Route::get('/',[WelcomeController::class,'welcome'])->name('welcome');
 
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth','admin'])->name('dashboard');
 
 
+Route::middleware(['admin','auth'])->prefix('administrateur')->group(function(){
+
+	Route::resource('produits', ProduitController::class);
+
+	Route::resource('categories', CategorieController::class);
+
+});

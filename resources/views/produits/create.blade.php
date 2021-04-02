@@ -18,7 +18,12 @@
 			<label for="">Prix</label>
 			<input type="text" name="prix" class="form-control">
 			<label for="">Categorie</label>
-			<input type="text" name="categorie" class="form-control">
+
+			<select name="categorie" class="form-control" >
+				@foreach($categories as $categorie)
+				<option value="{{ $categorie->id }}">{{ $categorie->nom }}</option>
+				@endforeach
+			</select>
 			<label for="">Description </label>
 			<textarea name="description"  class="form-control" rows="10"></textarea>
 

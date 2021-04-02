@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produit;
+use App\Models\Categorie;
 class ProduitController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        $produits = Produit::all();
+        $produits = Produit::orderBy('id','DESC')->get();
         
         return view('produits.index',compact('produits'));
     }
@@ -25,7 +26,10 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        return view('produits.create');
+
+        $categories = Categorie::all();
+
+        return view('produits.create',compact('categories'));
     }
 
     /**

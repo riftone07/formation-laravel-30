@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Nos categories</title>
-	<link rel="stylesheet" type="text/css" href="{{ asset('dist/css/bootstrap.css') }}">
-</head>
-<body>
+@extends('parents.master')
+
+@section('contenu')
 
 	<div class="container">
 		<div class="row">
@@ -70,6 +64,4 @@
 			</div>
 		</div>
 	</div>
-
-</body>
-</html>
+@endsection

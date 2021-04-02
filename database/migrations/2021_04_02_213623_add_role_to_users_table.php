@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Commandes extends Migration
+class AddRoleToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class Commandes extends Migration
      */
     public function up()
     {
-       Schema::create('commandes',)
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->after('email')->default('client');
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ class Commandes extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 }
