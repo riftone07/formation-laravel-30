@@ -30,4 +30,10 @@ class WelcomeController extends Controller
 
         return view('detailproduit')->with('produit',$produit);
     }
+
+    public function detailcategorie($id)
+    {
+        $categorie = Categorie::find($id);
+        return view('detailcategorie',compact('categorie'));
+    }
 }
