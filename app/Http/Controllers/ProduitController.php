@@ -103,4 +103,12 @@ class ProduitController extends Controller
     {
         //
     }
+
+
+     public function detailproduit($id)
+    {
+        $produit = Produit::find($id);
+
+        return view('detailproduit')->with('produit',$produit);
+    }
 }

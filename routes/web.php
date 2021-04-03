@@ -18,6 +18,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/',[WelcomeController::class,'welcome'])->name('welcome');
 
+Route::get('produits/{id}',[WelcomeController::class,'detailproduit'])->name('detailproduit');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -23,4 +23,11 @@ class WelcomeController extends Controller
     $produits = Produit::orderBy('prix','ASC')->get();
 	return view('welcome',compact('categories','produits'));
     }
+
+    public function detailproduit($id)
+    {
+        $produit = Produit::find($id);
+
+        return view('detailproduit')->with('produit',$produit);
+    }
 }

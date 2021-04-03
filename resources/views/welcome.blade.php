@@ -28,7 +28,9 @@
 		</div>
 		<div class="row">
 			@foreach($produits as $produit)
-			<div class="col-lg-3 mt-4">
+			
+			<div class="col-lg-3 mt-4 mx-0">
+				<a href="{{ route('detailproduit',$produit->id) }}" class="mx-0">
 				<div class="card">
 					<img src="{{ $produit->imagePrincipale() }}" alt="" class="img img-fluid">
 					<div class="card-body">
@@ -37,7 +39,9 @@
 						<span class="float-right">{{ $produit->prix }} Fcfa</span>
 					</div>
 				</div>
+				</a>
 			</div>
+			
 			@endforeach
 
 		</div>
